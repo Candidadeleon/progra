@@ -1,0 +1,64 @@
+
+<html>
+<head>
+  <title>Graficas</title>
+  <style type="text/css">
+  #navegador ul{
+    list-style-type: none;
+    text-align: center;
+  }
+  #navegador li{
+    display: inline;
+    text-align: center;
+    margin: 0 10px 0 0;
+  }
+  #navegador li a{
+    padding: 2px 7px 2px 7px
+    color: #666;
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    text-decoration: none;
+  }
+  #navegador li a:hover{
+    background-color: #333333;
+    color: #ffffff;
+  }
+</style>
+</head>
+  <body bgcolor="#8A0829" text="#F3F781" link="#blue" alink="purple" vlink="#6A0888">
+  <div id="navegador">
+    <ul>
+    <li><a href="index.html"> Datos Personales Uno</a></li>
+  <li><a href="listas.html">Listas</a></li>
+  <li><a href="tablas.html">Tablas</a></li>
+  <li><a href="graficas.html">Graficos</a></li>
+    </ul>
+  </div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+<script>
+   google.load("visualization", "1", {packages:["corechart"]});
+   google.setOnLoadCallback(dibujarGrafico);
+   function dibujarGrafico() {
+     // Tabla de datos: valores y etiquetas de la gráfica
+     var data = google.visualization.arrayToDataTable([
+       ['Texto', 'Valor numérico'],
+       ['Secretariado', 20.21],
+       ['Contador', 17.26],
+       ['Administradores', 10.25]    
+     ]);
+     var options = {
+       title: 'Ejemplo de grafica'
+     }
+     // Dibujar el gráfico
+     new google.visualization.ColumnChart( 
+     //ColumnChart sería el tipo de gráfico a dibujar
+       document.getElementById('GraficoGoogleChart-ejemplo-1')
+     ).draw(data, options);
+   }
+ </script> 
+<body>
+
+<div id="GraficoGoogleChart-ejemplo-1" style="width: 800px; height: 600px">
+</div>
+</body>
+</html>
